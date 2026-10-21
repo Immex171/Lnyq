@@ -1,0 +1,131 @@
+{
+  "title": "Choose the visual world for the LNYQ landing page",
+  "question": "The roll assigned The Pit Board. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "kind": "assigned",
+      "label": "The Pit Board",
+      "kicker": "THE ROLL",
+      "lineage": "open-outcry trading pits and the chalked quotation boards behind them",
+      "thesis": "The landing page is the price board itself: every devnet market chalked as a ruled row with its live best bid, depth and state, and the order book is the hero because it is the product.",
+      "palette": ["#15221d", "#efe9da", "#f4c95d", "#7fd8b4", "#f08c8c", "#c9b1ff"],
+      "materials": ["slate board", "chalk", "stencil numerals", "brass plaque"],
+      "viewport": "A full-bleed slate board. Top rail: LNYQ chalked in tall industrial caps with the one-line hook. Below it the board proper: thirteen ruled rows, one per devnet market, symbol, best bid, resting depth, status, read live from the gateway and updating as orders land. A real candle chart drawn in chalk for the market with fills; where no fills exist yet it draws the live bid ladder as depth and says so. Launch app and Request access hang as plaques on the board edge.",
+      "risk": "Chalk lettering tips into novelty if the display face is cute; the board must be ruled and numbered like a real price board, not a cafe menu.",
+      "raised": [
+        { "from": "challenger-drum-machine", "raise": "The live price tape is the page's one unbroken line with a now marker that never wraps." },
+        { "from": "challenger-forging", "raise": "One market per full-width ruled row, every number tabular and registered to the same columns." },
+        { "from": "challenger-sleeping-city", "raise": "Each market keeps one chalk colour everywhere it appears on the page." },
+        { "from": "challenger-one-bit", "raise": "Control states are drawn, not styled: pressed is filled chalk, disabled is a rubbed-out line." }
+      ]
+    },
+    {
+      "id": "model-pick",
+      "kind": "pick",
+      "label": "The Dojima Ledger",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "the Dojima rice exchange, Osaka, where Homma drew the first candlestick charts",
+      "thesis": "The candle chart goes home: a tall ledger sheet in sumi ink with vermilion closes, the live devnet market drawn the way price was first drawn.",
+      "palette": ["#f1e7cf", "#1a1612", "#b7262c", "#3b5e4e"],
+      "materials": ["rice paper", "sumi ink", "vermilion seal", "ruled ledger columns"],
+      "viewport": "One tall ledger sheet. The first column is the live candle chart in ink; the facing columns are the markets as ledger lines with best bid and depth; the LNYQ seal in vermilion is the primary action.",
+      "risk": "The most familiar strong direction for a chart-led product, and light paper is the opposite of what this audience's screens look like at night."
+    },
+    {
+      "id": "challenger-crouwel",
+      "kind": "challenger",
+      "catalogId": "crouwel-grid-specimen",
+      "label": "Crouwel Grid Specimen",
+      "verdict": "competitive",
+      "lineage": "Wim Crouwel gridded type specimens",
+      "thesis": "The order book ladder as a visible construction grid; the headline assembles from the same cells the price levels sit in.",
+      "palette": ["#f4f1ea", "#9db9d6", "#0b0b0b", "#e3261a"],
+      "materials": ["construction-grid hairlines", "monumental grid letterforms"],
+      "viewport": "Faint grid over the whole sheet; LNYQ built cell by cell at the top; the live book snapped to the grid below.",
+      "case": "Holds product clarity: a grid is an honest home for a price ladder. Loses audience identification: traders do not read Dutch specimen posters.",
+      "risk": "Reads as a design-school exercise unless the grid carries live numbers.",
+      "hero": "https://impeccable.style/worlds/cards/crouwel-grid-specimen-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/crouwel-grid-specimen.webp"
+    },
+    {
+      "id": "challenger-risograph",
+      "kind": "challenger",
+      "catalogId": "posters-covers-sleeves-risograph-zine-cover",
+      "label": "Risograph Zine Cover",
+      "verdict": "competitive",
+      "lineage": "small-press two-ink duplicator zines",
+      "thesis": "Bids in one ink, asks in the other, the spread as the third colour where they overlap.",
+      "palette": ["#ff48b0", "#0f5cc8", "#f3eee2"],
+      "materials": ["fluorescent spot ink", "newsprint stock", "halftone"],
+      "viewport": "Pink bids over blue asks, misregistered on purpose; the overlap is the live spread.",
+      "case": "Holds audience identification for the collectible-culture side of LNYQ. Loses clarity: two misregistered inks fight tabular numbers.",
+      "risk": "Numbers become hard to read exactly where the product needs them exact.",
+      "hero": "https://impeccable.style/worlds/cards/posters-covers-sleeves-risograph-zine-cover-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/posters-covers-sleeves-risograph-zine-cover.webp"
+    },
+    {
+      "id": "challenger-forging",
+      "kind": "challenger",
+      "catalogId": "metal-forging-patina-blacksmith-scale-shower",
+      "label": "Blacksmith Scale Shower",
+      "verdict": "declined",
+      "lineage": "forging under a power hammer",
+      "palette": ["#0e0b0a", "#ff6a1a", "#6b6b6b"],
+      "materials": ["hot iron", "black scale"],
+      "case": "Traders do not identify with a forge, and a blow-per-row cannot carry a two-sided book.",
+      "kept": "One event per full-width ruled row with measured state registered.",
+      "hero": "https://impeccable.style/worlds/cards/metal-forging-patina-blacksmith-scale-shower-hero.webp"
+    },
+    {
+      "id": "challenger-sleeping-city",
+      "kind": "challenger",
+      "catalogId": "dream-surreal-impossible-worlds-sleeping-city-fold",
+      "label": "Sleeping City Fold",
+      "verdict": "declined",
+      "lineage": "surreal folded night cities",
+      "palette": ["#0f1c3a", "#e9c46a", "#f4f1ea"],
+      "materials": ["quilted map", "embroidered lights"],
+      "case": "No trader or creator sees their world in a dreaming city, and folds hide numbers.",
+      "kept": "Each district keeps its own tint: one colour per market everywhere.",
+      "hero": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-sleeping-city-fold-hero.webp"
+    },
+    {
+      "id": "challenger-drum-machine",
+      "kind": "challenger",
+      "catalogId": "signals-instruments-drum-machine-step-row",
+      "label": "Drum Machine Step Row",
+      "verdict": "declined",
+      "lineage": "early-80s rhythm machine panels",
+      "palette": ["#1c1c1e", "#e3342f", "#f5a623", "#f8e71c"],
+      "materials": ["charcoal panel", "candy step keys", "LEDs"],
+      "case": "A loop of sixteen steps has no bid and no ask; the mechanism does not fit.",
+      "kept": "One unbroken line that never wraps, with a chase light that shows where now is.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-drum-machine-step-row-hero.webp"
+    },
+    {
+      "id": "challenger-one-bit",
+      "kind": "challenger",
+      "catalogId": "medium-native-one-bit-desktop",
+      "label": "One-bit Desktop",
+      "verdict": "declined",
+      "lineage": "early one-bit window systems",
+      "palette": ["#000000", "#ffffff"],
+      "materials": ["ordered dither", "one-pixel chrome"],
+      "case": "Nostalgia for a desktop this audience never used, and dither erases fine numerals.",
+      "kept": "Unambiguous drawn states: pressed inverts, disabled dims.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-one-bit-desktop-hero.webp"
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "The dark crypto landing: split hero with copy left and product right, badge row, three product cards, executed impeccably.",
+    "palette": ["#07070a", "#ffffff", "#9c56ff"],
+    "materials": ["dark glass panels", "glow accents", "product screenshot"],
+    "viewport": "Headline over subcopy and two buttons, the terminal screenshot beside it, cards below.",
+    "risk": "Indistinguishable from every other venue by design."
+  },
+  "steer": true
+}

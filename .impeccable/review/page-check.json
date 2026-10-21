@@ -1,0 +1,189 @@
+[
+  {
+    "route": "/",
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": [],
+    "title": "LNYQ · Order book for NFT collections",
+    "h1": "Liquidity, engineeredfor digital assets.",
+    "links": 32,
+    "buttons": 6,
+    "dead": [],
+    "missingAnchors": [],
+    "external": [
+      "http://localhost:5173/launchpad",
+      "http://localhost:5173/create",
+      "http://localhost:5173/trade",
+      "https://github.com/Lnyqprotocol/LnyqProtocol/tree/staging/docs",
+      "http://localhost:5173/auth",
+      "https://x.com/LnyqProtocol"
+    ],
+    "mailto": [
+      "mailto:ecosystem@lnyq.xyz",
+      "mailto:support@lnyq.xyz"
+    ],
+    "buttonsList": [
+      {
+        "text": "AMM",
+        "label": "",
+        "type": "button"
+      },
+      {
+        "text": "",
+        "label": "Open menu",
+        "type": "button"
+      },
+      {
+        "text": "Buy",
+        "label": "",
+        "type": "button"
+      },
+      {
+        "text": "Sell",
+        "label": "",
+        "type": "button"
+      },
+      {
+        "text": "Buy 2 NFTs",
+        "label": "",
+        "type": "submit"
+      },
+      {
+        "text": "Request access",
+        "label": "",
+        "type": "submit"
+      }
+    ]
+  },
+  {
+    "route": "/about",
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": [],
+    "title": "LNYQ · Order book for NFT collections",
+    "h1": "Liquidity, engineeredfor digital assets.",
+    "links": 32,
+    "buttons": 6,
+    "dead": [],
+    "missingAnchors": [],
+    "external": [
+      "http://localhost:5173/launchpad",
+      "http://localhost:5173/create",
+      "http://localhost:5173/trade",
+      "https://github.com/Lnyqprotocol/LnyqProtocol/tree/staging/docs",
+      "http://localhost:5173/auth",
+      "https://x.com/LnyqProtocol"
+    ],
+    "mailto": [
+      "mailto:ecosystem@lnyq.xyz",
+      "mailto:support@lnyq.xyz"
+    ],
+    "buttonsList": [
+      {
+        "text": "AMM",
+        "label": "",
+        "type": "button"
+      },
+      {
+        "text": "",
+        "label": "Open menu",
+        "type": "button"
+      },
+      {
+        "text": "Buy",
+        "label": "",
+        "type": "button"
+      },
+      {
+        "text": "Sell",
+        "label": "",
+        "type": "button"
+      },
+      {
+        "text": "Buy 2 NFTs",
+        "label": "",
+        "type": "submit"
+      },
+      {
+        "text": "Request access",
+        "label": "",
+        "type": "submit"
+      }
+    ]
+  },
+  {
+    "route": "/ecosystem",
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": [],
+    "title": "LNYQ ecosystem · Projects building on the order book",
+    "h1": "The LNYQ ecosystem.",
+    "links": 30,
+    "buttons": 3,
+    "dead": [],
+    "missingAnchors": [],
+    "external": [
+      "http://localhost:5173/launchpad",
+      "http://localhost:5173/create",
+      "http://localhost:5173/trade",
+      "https://github.com/Lnyqprotocol/LnyqProtocol/tree/staging/docs",
+      "https://x.com/LnyqProtocol"
+    ],
+    "mailto": [
+      "mailto:ecosystem@lnyq.xyz",
+      "mailto:support@lnyq.xyz"
+    ],
+    "buttonsList": [
+      {
+        "text": "AMM",
+        "label": "",
+        "type": "button"
+      },
+      {
+        "text": "",
+        "label": "Open menu",
+        "type": "button"
+      },
+      {
+        "text": "Submit Project",
+        "label": "",
+        "type": "submit"
+      }
+    ]
+  },
+  {
+    "route": "/nowhere",
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": [],
+    "title": "LNYQ · Order book for NFT collections",
+    "h1": "Nothing here.",
+    "links": 21,
+    "buttons": 2,
+    "dead": [],
+    "missingAnchors": [],
+    "external": [
+      "http://localhost:5173/launchpad",
+      "http://localhost:5173/create",
+      "http://localhost:5173/trade",
+      "https://github.com/Lnyqprotocol/LnyqProtocol/tree/staging/docs",
+      "https://x.com/LnyqProtocol"
+    ],
+    "mailto": [
+      "mailto:ecosystem@lnyq.xyz",
+      "mailto:support@lnyq.xyz"
+    ],
+    "buttonsList": [
+      {
+        "text": "AMM",
+        "label": "",
+        "type": "button"
+      },
+      {
+        "text": "",
+        "label": "Open menu",
+        "type": "button"
+      }
+    ]
+  }
+]
