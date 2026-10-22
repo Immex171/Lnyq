@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import SiteHeader from './components/site/SiteHeader'
+import ParticleWave from './components/site/ParticleWave'
 import SiteClosing from './components/site/SiteClosing'
 import HomePageV2 from './pages/HomePageV2'
 import EcosystemPage from './pages/EcosystemPage'
@@ -13,6 +14,11 @@ const TITLES: Record<string, string> = {
   '/docs': 'LNYQ | Docs',
   '/terms': 'LNYQ | Terms',
   '/privacy': 'LNYQ | Privacy',
+}
+
+/** The landing page's shared background: one wave layer behind header, sections, closing panel and footer. */
+function Background() {
+  return useLocation().pathname === '/' ? <ParticleWave /> : null
 }
 
 /** Route changes land at the top, or at the hash the link named; the title follows the route. */
@@ -51,6 +57,7 @@ export default function App() {
     <BrowserRouter>
       <div className="site" id="top">
         <RouteEffects />
+        <Background />
         <SiteHeader />
         <Routes>
           <Route path="/" element={<HomePageV2 />} />

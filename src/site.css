@@ -35,10 +35,13 @@
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s var(--s-ease), transform .7s var(--s-ease); transition-delay: var(--reveal-delay, 0ms); }
 .reveal.is-in { opacity: 1; transform: none; }
 
-/* Atmosphere: the particle wave, one sticky viewport-tall canvas under every section, out of the way of the pointer. */
+/* Atmosphere: the particle wave, one sticky viewport-tall canvas under the whole page (header to footer), out of the way of the pointer. */
+.site { position: relative; }
+.site > * { position: relative; z-index: 1; }
+.site > .site-header { position: sticky; }
+.site > .wave-wrap { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: clip; }
 .site-main { position: relative; }
 .site-main > * { position: relative; z-index: 1; }
-.site-main > .wave-wrap { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: clip; }
 .wave-stage { position: sticky; top: 0; height: 100vh; height: 100dvh; }
 .wave-canvas { display: block; width: 100%; height: 100%; }
 .wave-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.5) 60%, rgba(0,0,0,.7) 100%); }
