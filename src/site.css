@@ -232,6 +232,10 @@
 .site-cta-panel p { max-width: 36em; color: rgba(255,255,255,.75); font-size: 1.05rem; }
 .site-cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: .75rem; }
 .site-footer { padding: 2.5rem 0 1rem; }
+/* The wordmark: the name at the width of the page, its lower part cut away by the footer's rule, fading as it goes. */
+.site-wordmark { position: relative; height: .7em; margin-top: clamp(3rem, 6vw, 5rem); overflow: hidden; display: flex; justify-content: center; font-size: clamp(6rem, 29vw, 30rem); line-height: 1; border-bottom: 1px solid var(--s-line-2); }
+.site-wordmark span { display: block; font-weight: 700; letter-spacing: -.045em; line-height: 1; transform: translateY(-.11em); color: transparent; background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.8) 45%, rgba(255,255,255,.28) 95%); -webkit-background-clip: text; background-clip: text; user-select: none; }
+.site-wordmark::after { content: ''; position: absolute; inset: auto 0 0; height: 22%; background: linear-gradient(180deg, transparent, rgba(0,0,0,.55)); pointer-events: none; }
 .site-footer-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
 .site-footer-links, .site-footer-social { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; }
 .site-footer-links a, .site-footer-social a { display: inline-flex; align-items: center; gap: .25rem; min-height: 2rem; color: var(--s-text-2); font-size: .875rem; text-decoration: none; }

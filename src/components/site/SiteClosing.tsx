@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { IconArrowUp, IconArrowUpRight } from '@tabler/icons-react'
 import { CREATOR_APP_URL, DEX_APP_URL, DOCS_URL, PRIVACY_URL, SUPPORT_EMAIL, TERMS_URL, TWITTER_URL, closing, footer } from '../../content'
 
-/** The wide panel above the footer, then a simple footer with a back-to-top action. */
+/** The wide panel above the footer, the wordmark cut by the footer's rule on the landing page, then a simple footer with a back-to-top action. */
 export default function SiteClosing() {
+  const landing = useLocation().pathname === '/'
   return (
     <div className="site-closing">
       <section className="site-cta-panel" aria-labelledby="cta-title">
@@ -14,6 +15,11 @@ export default function SiteClosing() {
           <a className="site-btn ghost" href={CREATOR_APP_URL}>Create token</a>
         </div>
       </section>
+      {landing && (
+        <div className="site-wordmark" aria-hidden="true">
+          <span>LNYQ</span>
+        </div>
+      )}
       <footer className="site-footer">
         <div className="site-footer-row">
           <Link className="site-brand" to="/"><img src="/Lnyq.png" alt="" width={24} height={24} /><span>LNYQ</span></Link>
