@@ -35,11 +35,13 @@
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s var(--s-ease), transform .7s var(--s-ease); transition-delay: var(--reveal-delay, 0ms); }
 .reveal.is-in { opacity: 1; transform: none; }
 
-/* Atmosphere: a faint grid that drifts slowly. */
+/* Atmosphere: the particle wave, one sticky viewport-tall canvas under every section, out of the way of the pointer. */
 .site-main { position: relative; }
-.site-main::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(ellipse 70% 55% at 50% 22%, #000 10%, transparent 80%); animation: gridDrift 90s linear infinite; }
-@keyframes gridDrift { to { background-position: 48px 48px; } }
 .site-main > * { position: relative; z-index: 1; }
+.site-main > .wave-wrap { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: clip; }
+.wave-stage { position: sticky; top: 0; height: 100vh; height: 100dvh; }
+.wave-canvas { display: block; width: 100%; height: 100%; }
+.wave-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.5) 60%, rgba(0,0,0,.7) 100%); }
 
 /* Buttons */
 .site-btn { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 2.9rem; padding: 0 1.3rem; border-radius: 999px; border: 1px solid transparent; font-family: var(--s-font); font-size: .95rem; font-weight: 600; text-decoration: none; cursor: pointer; transition: background .18s ease, border-color .18s ease, transform .18s ease, color .18s ease; }
@@ -297,7 +299,6 @@
   .pv-ticket > * { flex: 0 0 auto; }
   .pv-top { justify-content: center; }
   .site-showcase-glow { filter: blur(26px); opacity: .6; }
-  .site-main::before { background-size: 36px 36px; }
   .site-cards.three, .eco-grid { grid-template-columns: 1fr; }
   .vision-item { grid-template-columns: 2.5rem minmax(0, 1fr); gap: .6rem; }
   .vision-list { gap: clamp(2.5rem, 6vh, 4rem); }
@@ -310,7 +311,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .site-main::before, .site-showcase-glow, .pv-tape li.new, .launch-stages li.current span i, .vision-mark circle { animation: none; }
+  .site-showcase-glow, .pv-tape li.new, .launch-stages li.current span i, .vision-mark circle { animation: none; }
   .vision-list.is-live .vision-item p { opacity: 1; } .vision-list.is-live .vision-marker { color: #fff; }
   .pv-panel { transform: none !important; }
   .pv-book-depth, .pv-chart-last, .pv-chart-tag { transition: none; }
