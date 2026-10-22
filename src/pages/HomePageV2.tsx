@@ -1,20 +1,20 @@
 import Hero from '../components/site/Hero'
-import DashboardShowcase from '../components/site/DashboardShowcase'
-import FeatureSection from '../components/site/FeatureSection'
-import HowItWorks from '../components/site/HowItWorks'
-import AboutSection from '../components/site/AboutSection'
-import EcosystemTeaser from '../components/site/EcosystemTeaser'
+import TerminalSection from '../components/site/TerminalSection'
+import PerpsSection from '../components/site/PerpsSection'
+import LaunchSection from '../components/site/LaunchSection'
+import VisionSection from '../components/site/VisionSection'
+import BuildSection from '../components/site/BuildSection'
 import AccessSection from '../components/site/AccessSection'
 
 export default function HomePageV2() {
   return (
     <main className="site-main">
       <Hero />
-      <DashboardShowcase />
-      <FeatureSection />
-      <HowItWorks />
-      <AboutSection />
-      <EcosystemTeaser />
+      <TerminalSection />
+      <PerpsSection />
+      <LaunchSection />
+      <VisionSection />
+      <BuildSection />
       <AccessSection />
     </main>
   )

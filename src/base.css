@@ -1,12 +1,12 @@
 :root {
   color-scheme: dark;
-  font-family: 'Zen Kaku Gothic New', 'Shippori Mincho', system-ui, sans-serif;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: #050507; scrollbar-color: #2b2733 #050507; }
-body { margin: 0; min-width: 320px; min-height: 100vh; background: #050507; }
+html { scroll-behavior: smooth; background: #000; scrollbar-color: #2a2a2a #000; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: #000; }
 button, input { font: inherit; }
-::selection { color: #0a0710; background: #c48afd; }
+::selection { color: #000; background: #fff; }

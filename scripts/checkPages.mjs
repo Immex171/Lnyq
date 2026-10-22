@@ -8,7 +8,7 @@ import path from 'node:path'
 import WebSocket from 'ws'
 
 const base = process.argv[2] || 'http://localhost:4173'
-const routes = ['/', '/about', '/ecosystem', '/nowhere']
+const routes = ['/', '/about', '/ecosystem', '/docs', '/terms', '/privacy', '/nowhere']
 const chrome = process.env.CHROME_BIN || 'google-chrome'
 const port = 9333
 const temp = await mkdtemp(path.join(tmpdir(), 'lnyq-check-'))

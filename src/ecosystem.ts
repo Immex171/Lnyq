@@ -1,49 +1,54 @@
-import { CREATOR_APP_URL, DEX_APP_URL, LAUNCHPAD_URL } from './content'
+import { CREATOR_APP_URL, DEX_APP_URL, LAUNCHPAD_URL, TWITTER_URL } from './content'
 
 /**
- * The ecosystem registry. Adding a project is one entry in `projects`;
- * adding a category is one entry in `categories`. The page renders both
- * from this file and nothing else needs to change.
+ * The ecosystem directory. Categories are fixed; a filter tab appears the
+ * moment its category has an entry and never shows an empty state. Adding
+ * a project is one entry in `entries`, after its application is approved.
  */
-export interface EcosystemCategory {
-  id: string
-  name: string
-  description: string
-}
+export const categories = [
+  { id: 'collectibles', name: 'Collectibles' },
+  { id: 'exchange', name: 'Exchange' },
+  { id: 'rwa', name: 'RWA' },
+  { id: 'aggregator', name: 'Aggregator' },
+  { id: 'wallets', name: 'Wallets' },
+  { id: 'launchpad', name: 'Launchpad' },
+  { id: 'market-makers', name: 'Market makers' },
+  { id: 'gaming', name: 'Gaming' },
+  { id: 'data-api', name: 'Data and API' },
+  { id: 'builder-tools', name: 'Builder tools' },
+] as const
 
-export interface EcosystemProject {
+export type CategoryId = (typeof categories)[number]['id']
+
+export interface EcosystemEntry {
   name: string
-  category: EcosystemCategory['id']
-  description: string
-  /** 'live' | 'building' | 'coming-soon'; stated plainly on the page. */
-  status: 'live' | 'building' | 'coming-soon'
-  url: string | null
-  /** True for the protocol's own products, which lead the page. */
+  category: CategoryId
+  about: string
+  /** Project logo, served from /public. */
+  logo: string
+  website?: string
+  x?: string
+  app?: string
+  /** True for LNYQ's own products, which are pinned above the directory. */
   own?: boolean
+  /** A label shown instead of the category name, for entries that are integrations rather than projects. */
+  tag?: string
 }
 
-export const categories: EcosystemCategory[] = [
-  { id: 'protocol', name: 'LNYQ products', description: 'The venues and tools LNYQ builds and operates.' },
-  { id: 'collections', name: 'NFT collections', description: 'Collections launched on LNYQ or trading on its order books.' },
-  { id: 'trading-tools', name: 'Trading tools', description: 'Terminals, bots, alerting and execution tooling built against the protocol API.' },
-  { id: 'aggregators', name: 'Aggregators and data', description: 'Price feeds, indexers, analytics and aggregators reading LNYQ market data.' },
-  { id: 'market-makers', name: 'Market makers', description: 'Professional and collection-owned market makers quoting on LNYQ books.' },
-  { id: 'wallets-infra', name: 'Wallets and infrastructure', description: 'Wallets, RPC providers and infrastructure LNYQ integrates with.' },
+export const entries: EcosystemEntry[] = [
+  { name: 'LNYQ Exchange', category: 'exchange', about: 'Spot and perpetual order books for NFT collections.', logo: '/Lnyq.png', app: DEX_APP_URL, x: TWITTER_URL, own: true },
+  { name: 'LNYQ Launchpad', category: 'launchpad', about: 'Launch a collection into a live market.', logo: '/Lnyq.png', app: LAUNCHPAD_URL, x: TWITTER_URL, own: true },
+  { name: 'LNYQ Creator', category: 'collectibles', about: 'Create and configure a collection.', logo: '/Lnyq.png', app: CREATOR_APP_URL, x: TWITTER_URL, own: true },
 ]
 
-export const projects: EcosystemProject[] = [
-  { name: 'LNYQ DEX', category: 'protocol', description: 'Central limit order book for NFT collections. Whole-NFT quantities, USDC settlement on Solana.', status: 'live', url: DEX_APP_URL, own: true },
-  { name: 'LNYQ Launchpad', category: 'protocol', description: 'Fixed-price and bid-mode presales with a handoff into the order book.', status: 'live', url: LAUNCHPAD_URL, own: true },
-  { name: 'LNYQ AMM', category: 'protocol', description: 'Non-custodial swap venue beside the order book.', status: 'coming-soon', url: null, own: true },
-  { name: 'LNYQ Creator', category: 'protocol', description: 'The creator workflow: define a collection, upload permanent metadata, configure and run its launch.', status: 'live', url: CREATOR_APP_URL, own: true },
-]
+export const ownProducts = () => entries.filter(entry => entry.own)
 
-export const statusLabel: Record<EcosystemProject['status'], string> = {
-  live: 'Live on Solana devnet',
-  building: 'Building on LNYQ',
-  'coming-soon': 'Coming soon',
-}
+export const categoryName = (id: CategoryId) => categories.find(category => category.id === id)!.name
 
-export function projectsIn(categoryId: string): EcosystemProject[] {
-  return projects.filter(project => project.category === categoryId)
-}
+/** Only the categories that have at least one entry, in the fixed order. */
+export const activeCategories = () => categories.filter(category => entries.some(entry => entry.category === category.id))
+
+export const entriesIn = (id: CategoryId | 'all') => (id === 'all' ? entries : entries.filter(entry => entry.category === id))
+
+/** The categories a submission can choose from: every fixed category, then Other. */
+export const submissionCategories = [...categories.map(category => ({ id: category.id as string, name: category.name })), { id: 'other', name: 'Other' }]

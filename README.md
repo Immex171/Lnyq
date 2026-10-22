@@ -1,6 +1,6 @@
 # LNYQ Landing
 
-A standalone, independently installable landing-site repository for LNYQ. It does not import source files or dependencies from the DEX frontend or `LnyqProtocol`.
+A standalone, independently installable landing site for LNYQ. It does not import source files or dependencies from the DEX frontend or `LnyqProtocol`.
 
 ## Run locally
 
@@ -10,37 +10,35 @@ npm install
 npm run dev
 ```
 
-The site runs at `http://localhost:4173` by default. Its CTA destinations are configured through `.env.local`:
+The site runs at `http://localhost:4173` by default. Its destinations are configured through `.env.local`:
 
-- `VITE_LNYQ_APP_URL` — trading terminal
-- `VITE_LNYQ_LAUNCHPAD_URL` — launch discovery
-- `VITE_LNYQ_CREATOR_URL` — token creator
-- `VITE_LNYQ_AUTH_URL` — access-code/sign-in page
-- `VITE_LNYQ_FORMS_URL` — delivery endpoint for the access-code and project forms (empty until one exists)
+- `VITE_LNYQ_APP_URL`: trading app
+- `VITE_LNYQ_LAUNCHPAD_URL`: launchpad
+- `VITE_LNYQ_CREATOR_URL`: creator app
+- `VITE_LNYQ_AUTH_URL`: access-code sign-in
+- `VITE_LNYQ_DOCS_URL`, `VITE_LNYQ_TERMS_URL`, `VITE_LNYQ_PRIVACY_URL`: footer destinations; while empty the site serves a holding page at `/docs`, `/terms` and `/privacy`
+- `VITE_LNYQ_FORMS_URL`: delivery endpoint for the access-code and project forms (empty until one exists)
 
 ## Commands
 
 ```bash
-npm run dev          # standalone Vite development server
+npm run dev          # Vite development server
 npm run build        # type-check and production build
-npm test             # landing tests
+npm test             # content, ecosystem, preview and content-rule tests
 npm run lint         # source lint
 node scripts/checkPages.mjs   # console errors, failed requests and dead links on every route
-npm run video:trade      # regenerate the legacy terminal recording (unused by the page)
-npm run video:trade:mp4  # same, as H.264 MP4
 ```
 
 ## Structure
 
-- `src/App.tsx` — routes: `/` (front page, with About as sections), `/ecosystem`; `/about` redirects to `/#about`
-- `src/components/site/` — the site shell and sections: pill header, hero, dashboard showcase with the scroll tilt, feature section, how it works with the launch visual, about, ecosystem teaser, access, closing panel and footer
-- `src/components/demos/` — the working demo cards (order book, chart, trade lifecycle) and the visibility-driven playback hook
-- `src/components/IllustrativeBook.tsx` — the live-behaving order book used inside the dashboard
-- `src/reveal.tsx` — the one-shot scroll entrance used by headings, cards and steps
-- `src/ecosystem.ts` — the ecosystem registry; add a project or a category here
-- `src/forms.ts` — form delivery with duplicate, failure and not-connected handling
-- `src/site.css` — the visual system (tokens, header, hero, dashboard, sections, cards, forms, closing); `src/landing.css` keeps the demo and book component styles
-- `scripts/checkPages.mjs` and `TESTING.md` — the page check and its record
-- `public/media/` and `scripts/generateTradeVideo.mjs` — an earlier terminal recording and its generator; unused by the page
+- `src/App.tsx`: routes: `/` (the front page, About is the vision section), `/ecosystem`, holding pages for `/docs`, `/terms`, `/privacy`; `/about` redirects to `/#about`
+- `src/content.ts`: every line of copy, every preview number and every outbound destination
+- `src/components/site/`: the page in order: header, hero, spot terminal, perps, launch, vision, build on LNYQ, early access, closing panel and footer
+- `src/components/preview/`: the spot chart, the order book and tape, and the ticker that lets them move gently while on screen
+- `src/ecosystem.ts`: the ecosystem directory; categories are fixed and a tab appears when its category has an entry
+- `src/forms.ts`: form delivery with duplicate, failure and not-connected handling
+- `src/site.css`: the visual system: black, white and grey, with green and red only inside the book, chart, tickets and the Long and Short tabs
+- `src/__tests__/rules.test.ts`: the content rules, enforced against the source
+- `public/media/` and `scripts/generateTradeVideo.mjs`: an earlier terminal recording and its generator; unused by the page
 
-Type is Space Grotesk, semibold headings and regular body, self-hosted through Fontsource. The dotted field, the glow, the dashboard tilt and the demos all stand still under `prefers-reduced-motion`.
+Type is Space Grotesk throughout, self-hosted through Fontsource. The grid, the glow, the terminal tilt and the previews all stand still under `prefers-reduced-motion`.
