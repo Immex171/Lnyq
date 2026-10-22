@@ -168,14 +168,15 @@
 .pv-perps .pv-ticket { gap: .5rem; }
 
 /* ── Launch ────────────────────────────────────────────────────────────── */
-.launch-flow { position: relative; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; column-gap: 3.5rem; align-items: center; margin-top: 3rem; }
+.launch-stage { margin-top: 3rem; }
+.launch-flow { position: relative; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; column-gap: 3.5rem; align-items: center; }
+.launch-flow.scaled { transform-origin: top left; }
 .launch-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
 .launch-line { fill: none; stroke: rgba(255,255,255,.38); stroke-width: 1.5; }
 .launch-light { fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 26 400; stroke-dashoffset: 426; opacity: .9; animation: lineLight 3.6s linear infinite; }
 @keyframes lineLight { to { stroke-dashoffset: 0; } }
 .launch-node { position: relative; display: flex; gap: .9rem; padding: 1.1rem 1.2rem; background: var(--s-card); border: 1px solid var(--s-line-2); border-radius: 16px; }
 .launch-node > div { display: flex; flex-direction: column; gap: .3rem; min-width: 0; }
-.launch-no { display: none; }
 .launch-node strong { font-size: 1.05rem; font-weight: 600; }
 .launch-node span { color: var(--s-text-2); font-size: .9rem; line-height: 1.45; }
 .launch-lanes { display: grid; gap: .75rem; }
@@ -289,8 +290,6 @@
   .pv-perps { max-width: none; margin-left: 0; }
   .site-cards.three, .eco-grid { grid-template-columns: 1fr 1fr; }
   .site-two-col, .site-two-col.narrow { grid-template-columns: 1fr; gap: 2rem; }
-  .launch-flow { grid-template-columns: 1fr; row-gap: 2rem; }
-  .launch-lanes { gap: 2rem; }
 }
 @media (max-width: 860px) {
   /* Header: the logo and Launch app on the first row, the navigation in its own centred row beneath. */
@@ -310,18 +309,11 @@
   .site-two-col .site-two-col-copy { align-items: center; text-align: center; }
   .site-two-col.narrow .site-two-col-copy { align-items: flex-start; text-align: left; }
   .pv-perps { max-width: none; }
-  /* Launch: the product panel first, then the heading and copy, then the steps as a numbered left-aligned sequence. */
+  /* Launch: the product panel first, then the heading and copy, then the diagram scaled to fit. */
   #launch { display: flex; flex-direction: column; }
   #launch .launch-card { order: 1; margin-top: 0; }
   #launch .site-section-intro { order: 2; margin-top: 2.75rem; }
   #launch .launch-flow-wrap { order: 3; }
-  .launch-flow { grid-template-columns: 1fr; row-gap: 0; margin-top: 1.5rem; }
-  .launch-lines { display: none; }
-  .launch-lanes { gap: 0; }
-  .launch-node { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: .9rem; align-items: start; padding: 1rem 0; background: none; border: 0; border-bottom: 1px solid var(--s-line); border-radius: 0; }
-  .launch-node:last-child, .launch-lanes .launch-node:last-child { border-bottom: 1px solid var(--s-line); }
-  .launch-flow > .launch-node:last-child { border-bottom: 0; }
-  .launch-no { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; margin-top: .1rem; color: var(--s-text-2); border: 1px solid var(--s-line-2); border-radius: 50%; font-size: .78rem; font-style: normal; font-weight: 600; letter-spacing: .04em; }
   /* About: markers stay in a narrow column with the full remaining width for the text. */
   .vision-item { grid-template-columns: 2.5rem minmax(0, 1fr); gap: .6rem; }
   .vision-list { gap: clamp(2.5rem, 6vh, 4rem); }
