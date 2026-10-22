@@ -205,8 +205,13 @@
 
 /* ── Vision: paragraphs that brighten as they are scrolled into reading position ── */
 .site-vision { max-width: 64rem; margin: 0 auto; padding: clamp(4rem, 8vw, 7rem) var(--s-gutter) clamp(3rem, 6vw, 5rem); }
-.vision-mark-wrap { display: flex; justify-content: center; margin-bottom: clamp(2.5rem, 6vh, 4.5rem); }
-.vision-mark { width: clamp(84px, 10vw, 120px); height: auto; }
+.vision-mark-wrap { display: flex; justify-content: center; padding: 2.5rem 0; margin-top: -2.5rem; margin-bottom: clamp(2.5rem, 6vh, 4.5rem); }
+.vision-mark { width: clamp(84px, 10vw, 120px); height: auto; overflow: visible; touch-action: manipulation; }
+/* Hover: each dot flies out along its own line and eases back when the pointer leaves. */
+.vision-dot { transform: translate(0, 0); transition: transform .8s cubic-bezier(.2, .8, .2, 1); transition-delay: var(--lag, 0s); will-change: transform; }
+.vision-mark.scattered .vision-dot { transform: translate(var(--sx), var(--sy)); transition-duration: .55s; transition-timing-function: cubic-bezier(.2, .7, .3, 1); }
+.vision-mark.scattered circle { opacity: 1; }
+.vision-mark.still .vision-dot, .vision-mark.still.scattered .vision-dot { transform: none; transition: none; }
 .vision-mark.static { filter: grayscale(1) brightness(4); opacity: .9; }
 .vision-mark circle { fill: #fff; opacity: .85; animation: dotDrift 5.5s ease-in-out infinite; animation-delay: var(--dot-delay, 0s); }
 .vision-mark circle:nth-child(3n) { animation-duration: 6.5s; } .vision-mark circle:nth-child(5n) { animation-duration: 4.8s; }
