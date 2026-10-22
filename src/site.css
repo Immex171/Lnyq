@@ -198,11 +198,25 @@
 .launch-open-book small { display: block; color: var(--s-text-3); font-size: .75rem; }
 .launch-open-book .bid { color: var(--s-green); } .launch-open-book .ask { color: var(--s-red); } .launch-open-book .mid { color: var(--s-text-3); }
 
-/* ── Vision: five paragraphs, each alone on screen ─────────────────────── */
-.site-vision { max-width: 60rem; margin: 0 auto; padding: 2rem var(--s-gutter) 4rem; }
-.site-vision p { min-height: 70vh; display: flex; align-items: center; margin: 0 auto; color: #fff; text-wrap: pretty; }
-.site-vision .vision-large { max-width: 20ch; font-size: clamp(2rem, 1.2rem + 3.6vw, 4.2rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.08; }
-.site-vision .vision-body { max-width: 34em; font-size: clamp(1.25rem, 1rem + 1.1vw, 1.9rem); font-weight: 500; letter-spacing: -.01em; line-height: 1.38; }
+/* ── Vision: paragraphs that brighten as they are scrolled into reading position ── */
+.site-vision { max-width: 64rem; margin: 0 auto; padding: clamp(4rem, 8vw, 7rem) var(--s-gutter) clamp(3rem, 6vw, 5rem); }
+.vision-mark-wrap { display: flex; justify-content: center; margin-bottom: clamp(2.5rem, 6vh, 4.5rem); }
+.vision-mark { width: clamp(84px, 10vw, 120px); height: auto; }
+.vision-mark.static { filter: grayscale(1) brightness(4); opacity: .9; }
+.vision-mark circle { fill: #fff; opacity: .85; animation: dotDrift 5.5s ease-in-out infinite; animation-delay: var(--dot-delay, 0s); }
+.vision-mark circle:nth-child(3n) { animation-duration: 6.5s; } .vision-mark circle:nth-child(5n) { animation-duration: 4.8s; }
+.vision-mark.still circle { animation: none; }
+@keyframes dotDrift { 0%, 100% { transform: translate(0, 0); opacity: .8; } 33% { transform: translate(var(--dot-drift, .8px), calc(var(--dot-drift, .8px) * -.7)); opacity: 1; } 66% { transform: translate(calc(var(--dot-drift, .8px) * -.6), var(--dot-drift, .8px)); opacity: .7; } }
+.vision-list { margin: 0; padding: 0; list-style: none; display: grid; gap: clamp(3rem, 8vh, 5.5rem); }
+.vision-item { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: 1rem; align-items: start; }
+.vision-item p { margin: 0; color: #fff; text-wrap: pretty; }
+.vision-item.large p { max-width: 20ch; font-size: clamp(2rem, 1.2rem + 3.6vw, 4.2rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.08; }
+.vision-item:not(.large) p { max-width: 34em; font-size: clamp(1.25rem, 1rem + 1.1vw, 1.9rem); font-weight: 500; letter-spacing: -.01em; line-height: 1.38; }
+.vision-marker { padding-top: .45em; color: var(--s-text-3); font-size: .95rem; font-weight: 600; letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+.vision-item.large .vision-marker { padding-top: .9em; }
+/* Live: the reveal variables are written by the scroll handler. The paragraph carries the opacity; the marker lifts from grey to white with it. */
+.vision-list.is-live .vision-item p { opacity: var(--reveal-opacity, 1); transition: opacity .12s linear; }
+.vision-list.is-live .vision-marker { color: color-mix(in srgb, #fff calc(var(--reveal, 1) * 100%), var(--s-text-3)); transition: color .12s linear; }
 
 /* ── Closing panel and footer ──────────────────────────────────────────── */
 .site-closing { max-width: var(--s-width); margin: 0 auto; padding: 0 var(--s-gutter) 1.5rem; }
@@ -287,7 +301,8 @@
   .site-showcase-glow { filter: blur(26px); opacity: .6; }
   .site-main::before { background-size: 36px 36px; }
   .site-cards.three, .eco-grid { grid-template-columns: 1fr; }
-  .site-vision p { min-height: 60vh; }
+  .vision-item { grid-template-columns: 2.5rem minmax(0, 1fr); gap: .6rem; }
+  .vision-list { gap: clamp(2.5rem, 6vh, 4rem); }
 }
 @media (max-width: 560px) {
   .site-form-row, .launch-card-stats { grid-template-columns: 1fr; }
@@ -297,7 +312,8 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .site-main::before, .site-showcase-glow, .pv-tape li.new, .launch-stages li.current span i { animation: none; }
+  .site-main::before, .site-showcase-glow, .pv-tape li.new, .launch-stages li.current span i, .vision-mark circle { animation: none; }
+  .vision-list.is-live .vision-item p { opacity: 1; } .vision-list.is-live .vision-marker { color: #fff; }
   .pv-panel { transform: none !important; }
   .pv-book-depth, .pv-chart-last, .pv-chart-tag { transition: none; }
 }
