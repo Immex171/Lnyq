@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../../reveal'
-import { ECOSYSTEM_EMAIL, build } from '../../content'
+import { build } from '../../content'
 
 /** Build on LNYQ: who is welcome and the way in. The Ecosystem page lists who is already here. */
 export default function BuildSection() {
@@ -21,7 +21,6 @@ export default function BuildSection() {
       <Reveal className="site-center-actions" delay={300}>
         <Link className="site-btn primary" to="/ecosystem#submit">{build.button}</Link>
       </Reveal>
-      <Reveal as="p" className="site-contact" delay={340}><a href={`mailto:${ECOSYSTEM_EMAIL}`}>{ECOSYSTEM_EMAIL}</a></Reveal>
     </section>
   )
 }
