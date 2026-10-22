@@ -6,9 +6,15 @@ import { liveFills } from '../preview/book'
 import { useTicker } from '../preview/useTicker'
 import { money, nf, px, terminal } from '../../content'
 
-/** The width the terminal is laid out at. Below the desktop breakpoint the whole panel is scaled to fit, so it keeps this composition everywhere. */
-const BASE_WIDTH = 1040
+/**
+ * The width the terminal is laid out at. Below the desktop breakpoint the
+ * whole panel is scaled to fit, so it keeps this composition everywhere.
+ * Phones use a narrower layout with larger, bolder type inside, so the text
+ * is still legible once scaled.
+ */
 const DESKTOP = 1100
+const PHONE = 560
+const baseWidth = () => (window.innerWidth < PHONE ? 760 : 1040)
 
 /**
  * The spot terminal, shown as a product screen. On desktop it starts tilted
@@ -22,7 +28,7 @@ export default function TerminalSection() {
   const stage = useRef<HTMLDivElement>(null)
   const panel = useRef<HTMLDivElement>(null)
   const [angle, setAngle] = useState(0)
-  const [fit, setFit] = useState<{ scale: number; height: number } | null>(null)
+  const [fit, setFit] = useState<{ scale: number; height: number; width: number } | null>(null)
   const [side, setSide] = useState<'buy' | 'sell'>('buy')
   const { tick } = useTicker(stage, 1400)
   const last = liveFills(tick)[0]!.price
@@ -33,8 +39,9 @@ export default function TerminalSection() {
     if (!element || !box) return
     const measure = () => {
       if (window.innerWidth >= DESKTOP) { setFit(null); return }
-      const scale = element.getBoundingClientRect().width / BASE_WIDTH
-      setFit({ scale, height: box.offsetHeight * scale })
+      const width = baseWidth()
+      const scale = element.getBoundingClientRect().width / width
+      setFit({ scale, height: box.offsetHeight * scale, width })
     }
     measure()
     const observer = new ResizeObserver(measure)
@@ -69,7 +76,7 @@ export default function TerminalSection() {
       <div className="site-showcase">
         <div className="site-showcase-glow" aria-hidden="true" />
         <div ref={stage} className="site-showcase-stage" style={fit ? { height: fit.height } : undefined}>
-          <div ref={panel} className={`pv-panel${fit ? ' scaled' : ''}`} style={fit ? { width: BASE_WIDTH, transform: `scale(${fit.scale})` } : { transform: `perspective(1600px) rotateX(${angle}deg)` }} aria-label="LNYQ spot terminal">
+          <div ref={panel} className={`pv-panel${fit ? ' scaled' : ''}${fit && fit.width < 1040 ? ' phone' : ''}`} style={fit ? { width: fit.width, transform: `scale(${fit.scale})` } : { transform: `perspective(1600px) rotateX(${angle}deg)` }} aria-label="LNYQ spot terminal">
             <div className="pv-top">
               <div className="pv-markets" role="tablist" aria-label="Market">
                 {terminal.markets.map((market, index) => <span key={market} role="tab" aria-selected={index === 0} className={index === 0 ? 'active' : undefined}>{market}</span>)}
@@ -84,7 +91,7 @@ export default function TerminalSection() {
             </div>
             <div className="pv-grid">
               <div className="pv-chart-cell">
-                <PreviewChart height={300} tick={tick} candles={terminal.chart.candles} low={terminal.chart.low} high={terminal.chart.high} close={terminal.chart.close} label={`${terminal.markets[0]} price chart`} />
+                <PreviewChart height={fit && fit.width < 1040 ? 640 : 300} tick={tick} candles={terminal.chart.candles} low={terminal.chart.low} high={terminal.chart.high} close={terminal.chart.close} label={`${terminal.markets[0]} price chart`} />
               </div>
               <div className="pv-book-cell"><PreviewBook tick={tick} /></div>
               <form className="pv-ticket" onSubmit={e => e.preventDefault()} aria-label="Order ticket">
