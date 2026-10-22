@@ -106,6 +106,7 @@
 .site-showcase-glow { position: absolute; left: 50%; top: 30%; width: min(110%, 1300px); height: 70%; transform: translateX(-50%); background: radial-gradient(ellipse at 50% 40%, rgba(255,255,255,.16), rgba(255,255,255,.06) 40%, transparent 70%); filter: blur(44px); pointer-events: none; animation: glowBreathe 16s ease-in-out infinite; }
 @keyframes glowBreathe { 0%, 100% { transform: translateX(-50%) scale(1); opacity: .8; } 50% { transform: translateX(-51%) scale(1.05); opacity: 1; } }
 .site-showcase-stage { position: relative; }
+.pv-panel.scaled { transform-origin: top left; }
 .pv-panel { position: relative; overflow: hidden; background: linear-gradient(180deg, #101010, #070707); border: 1px solid var(--s-line-2); border-radius: var(--s-radius); box-shadow: 0 50px 120px -30px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.04), 0 0 80px -30px rgba(255,255,255,.18); transform-origin: 50% 0; will-change: transform; font-variant-numeric: tabular-nums; }
 .pv-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; padding: .85rem 1rem; border-bottom: 1px solid var(--s-line); }
 .pv-markets { display: flex; gap: .2rem; padding: .25rem; background: rgba(255,255,255,.04); border-radius: 999px; }
@@ -285,10 +286,6 @@
 
 /* ── Responsive ────────────────────────────────────────────────────────── */
 @media (max-width: 1100px) {
-  .pv-grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
-  .pv-ticket { grid-column: 1 / -1; border-top: 1px solid var(--s-line); flex-direction: row; flex-wrap: wrap; align-items: center; }
-  .pv-ticket > * { flex: 1 1 10rem; }
-  .pv-perps .pv-ticket { flex-direction: column; align-items: stretch; border-top: 0; }
   .pv-perps { max-width: none; margin-left: 0; }
   .site-cards.three, .eco-grid { grid-template-columns: 1fr 1fr; }
   .site-two-col, .site-two-col.narrow { grid-template-columns: 1fr; gap: 2rem; }
@@ -307,12 +304,6 @@
   /* Hero: headline, copy, actions, then the terminal at the full content width. */
   .site-hero { padding-top: clamp(3rem, 8vh, 5rem); }
   .site-section.terminal { padding-top: clamp(2rem, 5vh, 3.5rem); }
-  .pv-grid { grid-template-columns: 1fr; }
-  .pv-grid > * { border-right: 0; border-bottom: 1px solid var(--s-line); }
-  .pv-grid > *:last-child { border-bottom: 0; }
-  .pv-ticket { flex-direction: column; align-items: stretch; }
-  .pv-ticket > * { flex: 0 0 auto; }
-  .pv-top { justify-content: center; }
   .site-showcase-glow { width: 100%; filter: blur(26px); opacity: .6; }
   /* One column everywhere: each introduction above its content, cards stacked at one width. */
   .site-cards.three, .eco-grid { grid-template-columns: 1fr; }
@@ -348,7 +339,6 @@
   .site-form-row, .launch-card-stats { grid-template-columns: 1fr; }
   .launch-open-book { grid-template-columns: 1fr; }
   .site-access-row { flex-direction: column; }
-  .pv-strip { gap: .5rem 1rem; } .pv-strip div { min-width: 7rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
