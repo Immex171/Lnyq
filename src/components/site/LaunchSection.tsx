@@ -1,5 +1,6 @@
 import { IconCheck } from '@tabler/icons-react'
 import Reveal from '../../reveal'
+import LaunchFlow from './LaunchFlow'
 import { launch, nf, px } from '../../content'
 
 /**
@@ -17,17 +18,7 @@ export default function LaunchSection() {
         <Reveal as="p" delay={80}>{launch.copy}</Reveal>
       </div>
 
-      <Reveal className="launch-flow" delay={120} aria-label="Launch flow">
-        <div className="launch-node"><strong>Create</strong><span>Define the collection and its supply.</span></div>
-        <div className="launch-branch" aria-hidden="true" />
-        <div className="launch-lanes">
-          {launch.lanes.map(lane => <div className="launch-node lane" key={lane.title}><strong>{lane.title}</strong><span>{lane.text}</span></div>)}
-        </div>
-        <div className="launch-branch join" aria-hidden="true" />
-        <div className="launch-node"><strong>Market opens</strong><span>An order book, a price, and liquidity from day one.</span></div>
-        <div className="launch-link" aria-hidden="true" />
-        <div className="launch-node"><strong>Trade</strong><span>Spot and perps, whole NFTs, settled in USDC.</span></div>
-      </Reveal>
+      <Reveal delay={120}><LaunchFlow /></Reveal>
       <Reveal as="p" className="launch-steps" delay={160}>{launch.steps.join('. ')}.</Reveal>
 
       <Reveal className="launch-card" delay={200} aria-label={`${card.collection} launch`}>
