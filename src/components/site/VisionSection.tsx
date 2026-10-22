@@ -43,7 +43,7 @@ export default function VisionSection() {
       <div className="vision-mark-wrap"><DottedMark /></div>
       <ol ref={list} className="vision-list">
         {vision.map((paragraph, index) => (
-          <li key={index} className={`vision-item${index === 0 || index === vision.length - 1 ? ' large' : ''}`}>
+          <li key={index} className="vision-item">
             <span className="vision-marker" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
             <p>{paragraph}</p>
           </li>

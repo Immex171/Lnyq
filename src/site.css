@@ -210,10 +210,8 @@
 .vision-list { margin: 0; padding: 0; list-style: none; display: grid; gap: clamp(3rem, 8vh, 5.5rem); }
 .vision-item { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: 1rem; align-items: start; }
 .vision-item p { margin: 0; color: #fff; text-wrap: pretty; }
-.vision-item.large p { max-width: 20ch; font-size: clamp(2rem, 1.2rem + 3.6vw, 4.2rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.08; }
-.vision-item:not(.large) p { max-width: 34em; font-size: clamp(1.25rem, 1rem + 1.1vw, 1.9rem); font-weight: 500; letter-spacing: -.01em; line-height: 1.38; }
+.vision-item p { max-width: 34em; font-size: clamp(1.25rem, 1rem + 1.1vw, 1.9rem); font-weight: 500; letter-spacing: -.01em; line-height: 1.38; }
 .vision-marker { padding-top: .45em; color: var(--s-text-3); font-size: .95rem; font-weight: 600; letter-spacing: .06em; font-variant-numeric: tabular-nums; }
-.vision-item.large .vision-marker { padding-top: .9em; }
 /* Live: the reveal variables are written by the scroll handler. The paragraph carries the opacity; the marker lifts from grey to white with it. */
 .vision-list.is-live .vision-item p { opacity: var(--reveal-opacity, 1); transition: opacity .12s linear; }
 .vision-list.is-live .vision-marker { color: color-mix(in srgb, #fff calc(var(--reveal, 1) * 100%), var(--s-text-3)); transition: color .12s linear; }
