@@ -16,11 +16,6 @@ const TITLES: Record<string, string> = {
   '/privacy': 'LNYQ | Privacy',
 }
 
-/** The landing page's shared background: one wave layer behind header, sections, closing panel and footer. */
-function Background() {
-  return useLocation().pathname === '/' ? <ParticleWave /> : null
-}
-
 /** Route changes land at the top, or at the hash the link named; the title follows the route. */
 function RouteEffects() {
   const { pathname, hash } = useLocation()
@@ -57,7 +52,7 @@ export default function App() {
     <BrowserRouter>
       <div className="site" id="top">
         <RouteEffects />
-        <Background />
+        <ParticleWave />
         <SiteHeader />
         <Routes>
           <Route path="/" element={<HomePageV2 />} />

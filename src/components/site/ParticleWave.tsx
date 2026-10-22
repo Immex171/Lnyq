@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { surfaceHeight } from '../../wave'
 
 /**
- * A field of small dots rolling in slow waves behind the whole landing page. The
+ * A field of small dots rolling in slow waves behind every page of the site. The
  * dots sit on a grid seen in perspective: rows recede toward a horizon near
  * the top, so nearer dots are larger and brighter and farther ones smaller
  * and softer. The surface height is a sum of sines in position and time,
