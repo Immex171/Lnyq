@@ -26,7 +26,6 @@ describe('landing content', () => {
     expect(launch.card.total).toBe(1_000_000)
     expect(launch.card.raised).toBe(launch.card.allocation * launch.card.presalePrice)
     expect(launch.lanes.map(lane => lane.title)).toEqual(['Presale', 'Straight to market'])
-    expect(launch.steps).toEqual(['Create', 'Launch', 'Market opens', 'Trade'])
   })
 
   it('carries the five vision paragraphs in order, unnumbered', () => {

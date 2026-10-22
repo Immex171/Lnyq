@@ -19,7 +19,6 @@ export default function LaunchSection() {
       </div>
 
       <Reveal delay={120}><LaunchFlow /></Reveal>
-      <Reveal as="p" className="launch-steps" delay={160}>{launch.steps.join('. ')}.</Reveal>
 
       <Reveal className="launch-card" delay={200} aria-label={`${card.collection} launch`}>
         <div className="launch-card-top">

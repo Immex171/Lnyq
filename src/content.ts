@@ -90,7 +90,6 @@ export const launch = {
     { title: 'Presale', text: 'Raise from your community first. When it closes, the market opens to market makers, then to everyone.' },
     { title: 'Straight to market', text: 'Skip the presale. Bring your own liquidity and open trading on day one.' },
   ],
-  steps: ['Create', 'Launch', 'Market opens', 'Trade'],
   card: {
     collection: 'LNYQNFT',
     stages: [
