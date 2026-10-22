@@ -28,7 +28,7 @@ export const hero = {
   title: 'Infrastructure for All NFT Finance',
   copy: 'Create, launch, and trade NFTs on spot and perpetuals, from collectibles and in-game assets to tokenized real-world assets, 24/7, with real price discovery.',
   primary: 'Launch app',
-  secondary: 'Create token',
+  secondary: 'Request access',
 }
 
 /* ── The spot terminal preview. Every number here is the one the page shows. ── */
