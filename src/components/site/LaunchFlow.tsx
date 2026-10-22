@@ -57,13 +57,13 @@ export default function LaunchFlow() {
         {paths.map((d, i) => <path key={`b${i}`} className="launch-line" d={d} />)}
         {paths.map((d, i) => <path key={`l${i}`} className="launch-light" d={d} style={{ animationDelay: `${i * 0.35}s` }} />)}
       </svg>
-      <div ref={set('create')} className="launch-node"><strong>Create</strong><span>Define the collection and its supply.</span></div>
+      <div ref={set('create')} className="launch-node"><i className="launch-no">01</i><div><strong>Create</strong><span>Define the collection and its supply.</span></div></div>
       <div className="launch-lanes">
-        <div ref={set('presale')} className="launch-node lane"><strong>{launch.lanes[0]!.title}</strong><span>{launch.lanes[0]!.text}</span></div>
-        <div ref={set('straight')} className="launch-node lane"><strong>{launch.lanes[1]!.title}</strong><span>{launch.lanes[1]!.text}</span></div>
+        <div ref={set('presale')} className="launch-node lane"><i className="launch-no">02</i><div><strong>{launch.lanes[0]!.title}</strong><span>{launch.lanes[0]!.text}</span></div></div>
+        <div ref={set('straight')} className="launch-node lane"><i className="launch-no">03</i><div><strong>{launch.lanes[1]!.title}</strong><span>{launch.lanes[1]!.text}</span></div></div>
       </div>
-      <div ref={set('market')} className="launch-node"><strong>Market opens</strong><span>An order book, a price, and liquidity from day one.</span></div>
-      <div ref={set('trade')} className="launch-node"><strong>Trade</strong><span>Spot and perps, whole NFTs, settled in USDC.</span></div>
+      <div ref={set('market')} className="launch-node"><i className="launch-no">04</i><div><strong>Market opens</strong><span>An order book, a price, and liquidity from day one.</span></div></div>
+      <div ref={set('trade')} className="launch-node"><i className="launch-no">05</i><div><strong>Trade</strong><span>Spot and perps, whole NFTs, settled in USDC.</span></div></div>
     </div>
   )
 }
