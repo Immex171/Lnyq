@@ -22,7 +22,7 @@ export default function TerminalSection() {
   useEffect(() => {
     const element = stage.current
     if (!element) return
-    const still = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 760
+    const still = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 1100
     const update = () => {
       if (still()) { setAngle(0); return }
       const rect = element.getBoundingClientRect()
