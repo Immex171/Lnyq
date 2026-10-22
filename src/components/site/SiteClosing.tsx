@@ -12,7 +12,7 @@ export default function SiteClosing() {
         <p>{closing.copy}</p>
         <div className="site-cta-actions">
           <a className="site-btn primary" href={DEX_APP_URL}>Launch app</a>
-          <a className="site-btn ghost" href={CREATOR_APP_URL}>Create token</a>
+          <a className="site-btn ghost" href="/#access">Request access</a>
         </div>
       </section>
       {landing && (
