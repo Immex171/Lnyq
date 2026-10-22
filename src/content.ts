@@ -35,7 +35,6 @@ export const hero = {
 export const terminal = {
   title: 'One market for every NFT asset.',
   copy: 'Place orders, see depth, and trade at the price the market sets. Spot and perpetuals, whole NFTs, settled in USDC.',
-  callout: 'One price for the whole collection.',
   markets: ['LNYQNFT / USDC', 'THEGOOMAN / USDC'],
   last: 40.2,
   session: '+2.8%',

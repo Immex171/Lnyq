@@ -77,7 +77,6 @@ export default function TerminalSection() {
           </div>
         </div>
       </div>
-      <Reveal as="p" className="site-callout" delay={120}>{terminal.callout}</Reveal>
     </section>
   )
 }

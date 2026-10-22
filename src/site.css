@@ -91,7 +91,6 @@
 .site-note a, .site-link, .site-contact a { color: #fff; font-weight: 500; text-decoration: none; }
 .site-note a:hover, .site-link:hover, .site-contact a:hover { text-decoration: underline; text-underline-offset: .25em; }
 .site-link { display: inline-flex; align-items: center; gap: .3rem; min-height: 2.5rem; }
-.site-callout { margin: 2.5rem auto 0; text-align: center; font-size: clamp(1.2rem, 1rem + 1vw, 1.6rem); font-weight: 600; letter-spacing: -.01em; }
 .site-contact { margin-top: 1.25rem; text-align: center; color: var(--s-text-3); font-size: .95rem; }
 .site-two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
 .site-two-col.narrow { align-items: start; }
