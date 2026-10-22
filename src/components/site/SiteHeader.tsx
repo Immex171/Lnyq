@@ -25,7 +25,6 @@ export default function SiteHeader() {
       <nav ref={ref} className="site-nav" aria-label="Primary">
         <Link className="site-brand" to="/" aria-label="LNYQ home"><img src="/Lnyq.png" alt="" width={24} height={24} /><span>LNYQ</span></Link>
         <div id="site-nav-pill" className={`site-nav-pill${open ? ' open' : ''}`}>
-          <a href={anchor('#products')} onClick={() => setOpen(false)}>Products</a>
           <a href={anchor('#about')} onClick={() => setOpen(false)}>About</a>
           <NavLink to="/ecosystem">Ecosystem</NavLink>
           <a href={anchor('#launch')} onClick={() => setOpen(false)}>Launchpad</a>
